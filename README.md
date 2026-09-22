@@ -26,7 +26,7 @@ The app works locally. Share the resulting ZIP through your preferred file-shari
 
 ## Quick start
 
-1. Run `dist\CC Project Transfer v1.0.exe` from a writable folder. No Python installation is required.
+1. Run `CC Project Transfer v1.0.exe` from a writable folder. No Python installation is required.
 2. Save your work and close CapCut before exporting or importing.
 3. Confirm the drafts folder, or use **Browse** to select it. Select the folder containing individual project folders.
 4. Choose a project and export it, or select **Import package** to restore a ZIP created by this app.
@@ -79,18 +79,6 @@ Files are staged and checked before the new project folder is finalized. Existin
 
 **A successful file restoration does not guarantee the project appears in CapCut's project list.** This version does not register projects in CapCut's index or regenerate internal project IDs.
 
-## Package contents
-
-```text
-Project name.zip
-├── manifest.json          # Format version, source paths, notes, sizes and checksums
-├── MEDIA_CHECKLIST.txt    # Recognized media paths, sizes and availability
-├── project/               # Packaged draft files
-└── media/                 # Collected external media, when included
-```
-
-The manifest and checklist contain original absolute paths, which may include the sender's Windows username or folder names. Checksums detect corruption; they do not authenticate the sender.
-
 ## Portable settings
 
 The EXE saves its folder preference beside itself:
@@ -100,70 +88,11 @@ CC Project Transfer v1.0.exe
 CapCutProjectTransfer.settings.json
 ```
 
-Keep the executable in a writable location, such as a personal folder or USB drive. If settings cannot be saved, the app can still list projects, but the folder preference will not persist. Single-file packaging temporarily extracts runtime files when the app starts.
-
-When running from Python source, settings are saved to:
-
-```text
-%LOCALAPPDATA%\CapCutProjectTransfer\settings.json
-```
-
 ## Development
-
-### Run from source
-
-Use Windows with Python 3.10 or newer, including Tcl/Tk support. The app itself uses only the Python standard library.
-
-```powershell
-py -3 app.py
-```
-
-Alternatively, double-click `launch.bat`. The launcher checks for an installed Python runtime and supports the bundled development runtime on the original build machine.
-
-### Build the portable EXE
 
 Build on Windows using Python with Tcl/Tk installed:
 
-```powershell
-py -3 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements-build.txt
-powershell -ExecutionPolicy Bypass -File build.ps1
-```
-
-Output:
-
-```text
-dist\CC Project Transfer v1.0.exe
-```
-
 The current release was built with Python 3.12 and PyInstaller for 64-bit Windows.
-
-### Verify
-
-Run the transfer tests:
-
-```powershell
-.\.venv\Scripts\python.exe -m unittest discover -s tests -v
-```
-
-Run the packaged GUI startup check:
-
-```powershell
-Start-Process -FilePath '.\dist\CC Project Transfer v1.0.exe' -ArgumentList '--smoke-test' -Wait
-```
-
-Nine automated transfer tests passed, covering media transfer, project-only export, missing media, unreadable drafts, archive safety, corruption rollback, overwrite prevention, and re-exporting a restored project. GUI layout was checked at 960 × 620 and 860 × 480, and the packaged startup check passed.
-
-### Source layout
-
-| File | Purpose |
-| --- | --- |
-| `app.py` | Desktop UI, settings, filename suggestions, and background jobs |
-| `transfer.py` | Draft discovery, media scanning, packaging, validation, and restoration |
-| `launch.bat` / `launch.ps1` | Source-code launch helpers |
-| `build.ps1` | Single-file Windows EXE build |
-| `requirements-build.txt` | Pinned build dependencies |
-| `tests/test_transfer.py` | Automated transfer tests |
 
 ## Current limitations
 
