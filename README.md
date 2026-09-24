@@ -1,3 +1,5 @@
+<img height="200" alt="splash-v2" src="https://github.com/user-attachments/assets/f2816f78-98a1-4816-a964-494d71e29e67" />
+
 # CC Project Transfer
 
 A portable Windows (10 & 11) utility for packaging local CapCut projects into ZIP files and restoring them on another computer.
