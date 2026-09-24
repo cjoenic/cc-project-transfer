@@ -1,33 +1,26 @@
-# CC Project Transfer v1.0
+# CC Project Transfer
 
-A portable Windows utility for packaging local CapCut projects into ZIP files and restoring them on another computer. Built with Python and Tkinter for project handoffs between teammates.
+A portable Windows (10 & 11) utility for packaging local CapCut projects into ZIP files and restoring them on another computer.
+Built with Python and Tkinter for project handoffs between teammates.
 
-**CC Project Transfer v1.0 - made by charles**
+- Ease your way to copy / transfer project between pc / teams
+- Export capcut project to zip file (with or without media sources)
+- Export/Export Capcut project to FTP server (like cloud, but less secure)
+
+V2.0 Changelog
+- Added FTP support
+- Added Jianying Support
+- Added batch export option
+- Removed capcut is closed sldier/checkbox
 
 ## Overview
 
 CapCut stores local drafts in project folders. This app helps users find those folders, package a selected project, and restore a shared package into their own drafts directory. Source media can be included or transferred separately.
 
-The app works locally. Share the resulting ZIP through your preferred file-sharing service. It does not provide cloud sync, simultaneous editing, or project merging.
-
-## Features
-
-- Detects the default Windows drafts location, with manual folder selection and a saved folder preference.
-- Lists projects by name and last-modified date.
-- Suggests the project name as the export ZIP filename, replacing invalid Windows filename characters.
-- Offers an **Include source media files** toggle.
-- Displays recognized media references, missing-file counts, and estimated uncompressed size.
-- Includes optional handoff notes and a media checklist in the package.
-- Verifies packaged files using SHA-256 checksums during restoration.
-- Checks archive paths and available disk space before extraction.
-- Restores into a new folder without overwriting existing projects.
-- Provides a compact interface with scrollable settings, progress feedback, and a fixed export button.
-- Runs as a single portable Windows EXE with Python and Tkinter bundled.
-
 ## Quick start
 
-1. Run `CC Project Transfer v1.0.exe` from a writable folder. No Python installation is required.
-2. Save your work and close CapCut before exporting or importing.
+1. Run `CC Project Transfer v1.0.exe` No Python installation is required.
+2. Be sure to save your work and close CapCut before exporting or importing.
 3. Confirm the drafts folder, or use **Browse** to select it. Select the folder containing individual project folders.
 4. Choose a project and export it, or select **Import package** to restore a ZIP created by this app.
 
@@ -107,4 +100,3 @@ This is an experimental utility, not an official CapCut integration. A full tran
 - Only this app's package format is accepted; arbitrary project ZIP files are not supported.
 - Transfers are intended for Windows-to-Windows use, preferably with matching CapCut versions.
 
-The next validation step is a real two-computer transfer using external video, audio, and images, followed by checking project visibility, playback, editing, and video export. Test both media-inclusive and project-only handoffs before relying on the app for production collaboration.
