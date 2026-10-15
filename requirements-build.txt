@@ -1,0 +1,9 @@
+altgraph==0.17.5
+packaging==26.3
+pefile==2024.8.26
+pyinstaller==6.22.3
+pyinstaller-hooks-contrib==2026.7
+pywin32==312
+pywin32-ctypes==0.2.3
+Send2Trash==2.1.0
+setuptools==84.0.0
